@@ -4,118 +4,424 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Aicha El Bekali | Data & AI Portfolio</title>
+  <meta name="description" content="Portfolio of Aicha El Bekali — Data & AI, Linux & Virtualization, Engineering student."/>
   <style>
-    body{font-family:Arial,Helvetica,sans-serif;max-width:900px;margin:40px auto;padding:0 16px;line-height:1.5;color:#111}
-    h1{margin:0 0 6px}
-    .subtitle{color:#444;margin:0 0 18px}
-    .links a{margin-right:12px}
-    .card{border:1px solid #e5e5e5;border-radius:12px;padding:16px;margin:14px 0}
-    ul{margin:8px 0 0 18px}
-    .pill{display:inline-block;border:1px solid #ddd;border-radius:999px;padding:6px 10px;margin:6px 6px 0 0;font-size:13px}
-    footer{margin-top:30px;color:#555;font-size:14px}
-    .note{color:#555;font-size:14px;margin-top:8px}
+    :root{
+      --bg: #0b1020;
+      --panel: rgba(255,255,255,.06);
+      --panel-2: rgba(255,255,255,.08);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.70);
+      --muted2: rgba(255,255,255,.55);
+      --border: rgba(255,255,255,.12);
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+      --radius2: 14px;
+      --accent: #7dd3fc; /* light-cyan */
+      --accent2: #a78bfa; /* violet */
+      --ok: #34d399; /* green */
+      --warn: #fbbf24; /* amber */
+      --chip: rgba(125,211,252,.14);
+      --chip-border: rgba(125,211,252,.25);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(900px 600px at 20% 0%, rgba(167,139,250,.22), transparent 60%),
+        radial-gradient(800px 500px at 85% 10%, rgba(125,211,252,.18), transparent 55%),
+        radial-gradient(900px 700px at 45% 100%, rgba(52,211,153,.10), transparent 55%),
+        var(--bg);
+      line-height:1.55;
+    }
+
+    a{color:inherit; text-decoration:none}
+    a:hover{opacity:.95}
+
+    .wrap{
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 34px 18px 60px;
+    }
+
+    /* Header */
+    .hero{
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      border-radius: calc(var(--radius) + 6px);
+      box-shadow: var(--shadow);
+      padding: 26px 22px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(600px 220px at 10% 0%, rgba(125,211,252,.18), transparent 55%),
+        radial-gradient(520px 220px at 95% 10%, rgba(167,139,250,.16), transparent 60%);
+      pointer-events:none;
+      filter: blur(0px);
+    }
+    .hero-inner{position:relative; display:flex; gap:18px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap}
+    .title{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      min-width: 280px;
+      max-width: 720px;
+    }
+    h1{
+      font-size: 34px;
+      line-height:1.15;
+      margin:0;
+      letter-spacing:.2px;
+    }
+    .subtitle{
+      margin:0;
+      color:var(--muted);
+      font-size: 15.5px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+      min-width: 260px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border-radius: 999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      font-size: 14px;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      user-select:none;
+    }
+    .btn:hover{
+      background: rgba(255,255,255,.10);
+      border-color: rgba(255,255,255,.18);
+      transform: translateY(-1px);
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(125,211,252,.22), rgba(167,139,250,.18));
+      border-color: rgba(125,211,252,.30);
+    }
+
+    .icon{
+      width:18px; height:18px; display:inline-block;
+      opacity:.95;
+    }
+
+    /* layout */
+    .grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:16px;
+      margin-top: 16px;
+    }
+    @media (max-width: 920px){
+      .grid{grid-template-columns:1fr}
+    }
+
+    .panel{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.05);
+      border-radius: var(--radius);
+      padding: 18px 18px;
+      box-shadow: 0 14px 40px rgba(0,0,0,.30);
+    }
+
+    .section-title{
+      margin:0 0 10px;
+      font-size: 14px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted2);
+    }
+
+    p{margin:0 0 10px}
+    .muted{color:var(--muted)}
+
+    /* chips */
+    .chips{display:flex; flex-wrap:wrap; gap:8px}
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 10px;
+      border-radius: 999px;
+      border:1px solid var(--chip-border);
+      background: var(--chip);
+      color: var(--text);
+      font-size: 13px;
+      white-space:nowrap;
+    }
+    .dot{
+      width:8px; height:8px; border-radius:50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px rgba(125,211,252,.15);
+    }
+
+    /* project cards */
+    .projects{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:12px;
+      margin-top: 10px;
+    }
+    .card{
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04));
+      border-radius: var(--radius2);
+      padding: 16px;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+      position:relative;
+      overflow:hidden;
+    }
+    .card:hover{
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,.20);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+    }
+
+    .card-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:8px;
+    }
+    .card h3{
+      margin:0;
+      font-size: 17px;
+      letter-spacing:.2px;
+    }
+    .tag{
+      font-size:12px;
+      color: rgba(255,255,255,.78);
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      padding:6px 10px;
+      border-radius: 999px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .tag.ok{border-color: rgba(52,211,153,.25); background: rgba(52,211,153,.10)}
+    .tag.soon{border-color: rgba(251,191,36,.28); background: rgba(251,191,36,.10)}
+
+    .card ul{
+      margin:10px 0 0 18px;
+      color: var(--muted);
+    }
+    .card p{color:var(--muted); margin:6px 0 0}
+
+    .card-actions{
+      margin-top:12px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    /* side blocks */
+    .kv{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .kv-row{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      border-radius: 14px;
+      padding: 12px 12px;
+    }
+    .kv-row strong{display:block; font-size:14px; margin-bottom:4px}
+    .kv-row span{color:var(--muted); font-size:13.5px}
+
+    /* footer */
+    footer{
+      margin-top: 22px;
+      color: var(--muted2);
+      font-size: 13px;
+      text-align:center;
+    }
+
+    /* small helper for inline links */
+    .link{
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
   </style>
 </head>
 <body>
+  <div class="wrap">
 
-  <h1>Aicha El Bekali</h1>
-  <p class="subtitle">Engineering Student (Computer Science & Networks) | Data & AI | Linux & Virtualization</p>
+    <header class="hero">
+      <div class="hero-inner">
+        <div class="title">
+          <h1>Aicha El Bekali</h1>
+          <p class="subtitle">Engineering Student (Computer Science & Networks) · Data & AI · Linux & Virtualization</p>
+        </div>
 
-  <div class="links">
-    <a href="https://www.linkedin.com/in/aicha-el-bekali-95b9a539b/" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://github.com/aicha53-dot" target="_blank" rel="noopener">GitHub</a>
+        <div class="actions">
+          <a class="btn primary" href="./CV_AICHA_EL_BEKALI.pdf" target="_blank" rel="noopener">
+            <span class="icon">📄</span> CV (PDF)
+          </a>
+          <a class="btn" href="https://www.linkedin.com/in/aicha-el-bekali-95b9a539b/" target="_blank" rel="noopener">
+            <span class="icon">in</span> LinkedIn
+          </a>
+          <a class="btn" href="https://github.com/aicha53-dot" target="_blank" rel="noopener">
+            <span class="icon">⌂</span> GitHub
+          </a>
+          <a class="btn" href="mailto:aichaelbekali53@gmail.com">
+            <span class="icon">✉</span> Email
+          </a>
+        </div>
+      </div>
+    </header>
 
-    <!-- IMPORTANT: upload your CV to this repo and rename it exactly to CV_Aicha_El_Bekali.pdf -->
-    <a href="./CV_AICHA_EL_BEKALI.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
+    <main class="grid">
+      <!-- left -->
+      <section class="panel">
+        <h2 class="section-title">About</h2>
+        <p class="muted">
+          I am a 4th-year engineering student specializing in Data Science & AI (2025–2026), with hands-on experience in
+          machine learning, software development, Linux systems, and virtualization. I enjoy building practical solutions
+          and working on data-driven projects.
+        </p>
 
-    <a href="mailto:aichaelbekali53@gmail.com">Email</a>
+        <h2 class="section-title" style="margin-top:14px;">Projects</h2>
+
+        <div class="projects">
+          <article class="card">
+            <div class="card-top">
+              <h3>Energy Efficiency Classification (Machine Learning)</h3>
+              <span class="tag ok"><span style="color:var(--ok)">●</span> Public repo</span>
+            </div>
+            <p>Supervised ML pipeline (SVM, KNN, Decision Tree) to predict building energy efficiency classes.</p>
+            <ul>
+              <li>Data preprocessing, scaling, model comparison and evaluation</li>
+              <li>Selected best model based on performance metrics</li>
+            </ul>
+            <div class="card-actions">
+              <a class="btn" href="https://github.com/aicha53-dot/energy-classification-project" target="_blank" rel="noopener">View on GitHub</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <h3>Personal Budget Management Web App (ASP.NET Core MVC)</h3>
+              <span class="tag ok"><span style="color:var(--ok)">●</span> Public repo</span>
+            </div>
+            <p>Secure web application for personal finance management with authentication and dashboards.</p>
+            <ul>
+              <li>MVC architecture, CRUD operations, and structured codebase</li>
+              <li>Data-driven features and basic analytics</li>
+            </ul>
+            <div class="card-actions">
+              <a class="btn" href="https://github.com/aicha53-dot/PersonalBudgetApp1" target="_blank" rel="noopener">View on GitHub</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <h3>Bank Fraud Detection (Machine Learning)</h3>
+              <span class="tag soon"><span style="color:var(--warn)">●</span> Publishing soon</span>
+            </div>
+            <p>ML-based anomaly detection pipeline for banking transactions.</p>
+            <ul>
+              <li>Data cleaning, preprocessing, and classification</li>
+              <li>Focus on reliability and detection accuracy</li>
+            </ul>
+            <div class="card-actions">
+              <span class="note">Repo will be published soon.</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <h3>Virtualized DMZ & Mini Datacenter (Proxmox)</h3>
+              <span class="tag soon"><span style="color:var(--warn)">●</span> Adding report</span>
+            </div>
+            <p>DMZ architecture (Web, DB, Firewall), NAT rules, secure segmentation, VM configuration and testing.</p>
+            <ul>
+              <li>Configured VMs and network zones</li>
+              <li>Tested connectivity and isolation between zones</li>
+            </ul>
+            <div class="card-actions">
+              <span class="note">Report/repository will be added soon.</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- right -->
+      <aside class="panel">
+        <h2 class="section-title">Core skills</h2>
+        <div class="chips">
+          <span class="chip"><span class="dot"></span>Python</span>
+          <span class="chip"><span class="dot"></span>Pandas</span>
+          <span class="chip"><span class="dot"></span>NumPy</span>
+          <span class="chip"><span class="dot"></span>Scikit-learn</span>
+          <span class="chip"><span class="dot"></span>SQL</span>
+          <span class="chip"><span class="dot"></span>Java</span>
+          <span class="chip"><span class="dot"></span>Linux</span>
+          <span class="chip"><span class="dot"></span>Proxmox</span>
+          <span class="chip"><span class="dot"></span>Git</span>
+          <span class="chip"><span class="dot"></span>MongoDB</span>
+          <span class="chip"><span class="dot"></span>MySQL</span>
+        </div>
+
+        <h2 class="section-title" style="margin-top:14px;">Quick info</h2>
+        <div class="kv">
+          <div class="kv-row">
+            <strong>Education</strong>
+            <span>EMSI — Engineering (Computer Science & Networks) · 4th year</span>
+          </div>
+          <div class="kv-row">
+            <strong>Track</strong>
+            <span>Data Science & AI specialization (2025–2026)</span>
+          </div>
+          <div class="kv-row">
+            <strong>Languages</strong>
+            <span>French (C1) · English (Fluent) · German (B1 – Goethe)</span>
+          </div>
+          <div class="kv-row">
+            <strong>Contact</strong>
+            <span>
+              Personal: <a class="link" href="mailto:aichaelbekali53@gmail.com">aichaelbekali53@gmail.com</a><br/>
+              School: <a class="link" href="mailto:aicha.elbekali@emsi-edu.ma">aicha.elbekali@emsi-edu.ma</a>
+            </span>
+          </div>
+        </div>
+
+        <h2 class="section-title" style="margin-top:14px;">Next upgrades</h2>
+        <p class="muted">
+          Publish the Fraud Detection repo and add the Proxmox/DMZ report to make the portfolio even stronger.
+        </p>
+      </aside>
+    </main>
+
+    <footer>
+      © <span id="y"></span> Aicha El Bekali · Built with GitHub Pages
+    </footer>
   </div>
 
-  <h2>About</h2>
-  <p>
-    I am a 4th-year engineering student specializing in Data Science & AI (2025–2026), with hands-on experience in
-    machine learning, software development, Linux systems, and virtualization. I enjoy building practical solutions
-    and working on data-driven projects.
-  </p>
-
-  <h2>Projects</h2>
-
-  <div class="card">
-    <h3>Energy Efficiency Classification (Machine Learning)</h3>
-    <p>Built and evaluated supervised ML models (SVM, KNN, Decision Tree) to predict building energy efficiency classes.</p>
-    <ul>
-      <li>Data preprocessing, scaling, model comparison and evaluation</li>
-      <li>Selected the best model based on performance metrics</li>
-    </ul>
-    <p>
-      <a href="https://github.com/aicha53-dot/energy-classification-project" target="_blank" rel="noopener">GitHub Repository</a>
-    </p>
-  </div>
-
-  <div class="card">
-    <h3>Personal Budget Management Web App (ASP.NET Core MVC)</h3>
-    <p>Secure web application for personal finance management with authentication and dashboards.</p>
-    <ul>
-      <li>CRUD operations and structured MVC architecture</li>
-      <li>Data-driven features and analytics (basic)</li>
-    </ul>
-    <p>
-      <a href="https://github.com/aicha53-dot/PersonalBudgetApp1" target="_blank" rel="noopener">GitHub Repository</a>
-    </p>
-  </div>
-
-  <div class="card">
-    <h3>Bank Fraud Detection (Machine Learning)</h3>
-    <p>Developed an ML-based anomaly detection pipeline for banking transactions.</p>
-    <ul>
-      <li>Data cleaning, preprocessing and classification</li>
-      <li>Focus on reliability and detection accuracy</li>
-    </ul>
-    <p class="note">Repository will be published soon.</p>
-  </div>
-
-  <div class="card">
-    <h3>Virtualized DMZ & Mini Datacenter (Proxmox)</h3>
-    <p>Designed a virtualized infrastructure with DMZ architecture (Web, DB, Firewall), NAT rules and secure segmentation.</p>
-    <ul>
-      <li>Configured VMs and network zones</li>
-      <li>Tested isolation and connectivity</li>
-    </ul>
-    <p class="note">Project report/repository will be added soon.</p>
-  </div>
-
-  <h2>Skills</h2>
-  <div>
-    <span class="pill">Python</span>
-    <span class="pill">Pandas</span>
-    <span class="pill">NumPy</span>
-    <span class="pill">Scikit-learn</span>
-    <span class="pill">SQL</span>
-    <span class="pill">Java</span>
-    <span class="pill">Linux</span>
-    <span class="pill">Proxmox</span>
-    <span class="pill">Git</span>
-    <span class="pill">MongoDB</span>
-    <span class="pill">MySQL</span>
-  </div>
-
-  <h2>Languages</h2>
-  <ul>
-    <li>French: C1</li>
-    <li>English: Fluent (technical)</li>
-    <li>German: B1 (Goethe)</li>
-  </ul>
-
-  <h2>Contact</h2>
-  <p>
-    Personal: <a href="mailto:aichaelbekali53@gmail.com">aichaelbekali53@gmail.com</a><br/>
-    School: <a href="mailto:aicha.elbekali@emsi-edu.ma">aicha.elbekali@emsi-edu.ma</a>
-  </p>
-
-  <footer>
-    © <span id="y"></span> Aicha El Bekali — Built with GitHub Pages
-  </footer>
-
-  <script>document.getElementById("y").textContent=new Date().getFullYear()</script>
+  <script>document.getElementById("y").textContent = new Date().getFullYear()</script>
 </body>
 </html>
