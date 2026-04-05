@@ -248,65 +248,50 @@
       border: 1px solid rgba(255,255,255,.9);
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
     }
 
-    .photo-area {
+    .photo-box-large {
+      width: calc(100% - 36px);
+      height: 430px;
+      margin: 18px auto 0;
+      border-radius: 28px;
+      overflow: hidden;
+      background: #edf4ff;
+      box-shadow: 0 16px 40px rgba(81, 119, 190, .14);
+      border: 1px solid rgba(255,255,255,.95);
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .profile-image {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .photo-fallback {
       position: absolute;
       inset: 0;
-      display: flex;
       align-items: center;
       justify-content: center;
-      padding: 34px;
-    }
-
-    .photo-orb {
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(73,163,255,.22), rgba(255,127,202,.16), transparent 72%);
-      filter: blur(28px);
-    }
-
-    .photo-box {
-  position: relative;
-  width: 100%;
-  max-width: 300px;
-  height: 420px;
-  border-radius: 28px;
-  overflow: hidden;
-  margin: 40px auto 0;
-  background: #ffffff;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-  border: 1px solid rgba(255,255,255,0.9);
-}
-
-.photo-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-    .photo-placeholder {
       text-align: center;
       padding: 24px;
       color: var(--text);
+      background: linear-gradient(180deg, #eff6ff, #f7fbff);
     }
 
-    .photo-placeholder strong {
+    .photo-fallback strong {
       display: block;
-      font-size: 3.2rem;
-      letter-spacing: -.08em;
+      font-size: 1.15rem;
       margin-bottom: 8px;
     }
 
-    .photo-placeholder span {
-      font-size: .95rem;
+    .photo-fallback span {
       color: var(--muted);
+      font-size: .95rem;
       line-height: 1.5;
-      display: block;
     }
 
     .profile-info {
@@ -644,24 +629,27 @@
       <section class="left-panel">
         <div class="profile-frame">
           <div class="profile-card">
-  <div class="photo-area">
-    <div class="photo-orb"></div>
-    <div class="photo-box">
-      <img src="profile.jpg" alt="Aicha El Bekali" />
-    </div>
-  </div>
+            <div class="photo-box-large">
+              <img src="./profile.jpg" alt="Aicha El Bekali" class="profile-image" onerror="this.style.display='none'; document.getElementById('photoFallback').style.display='flex';" />
+              <div id="photoFallback" class="photo-fallback" style="display:none;">
+                <div>
+                  <strong>Photo introuvable</strong>
+                  <span>Ajoute <b>profile.jpg</b> dans le même dossier que <b>index.html</b>.</span>
+                </div>
+              </div>
+            </div>
 
-  <div class="profile-info">
-    <div class="lang-row">
-      <span>FR</span>
-      <span>EN</span>
-      <span>DE</span>
-    </div>
-    <h1>Aicha El Bekali</h1>
-    <div class="role">Software · AI · Systems Engineering</div>
-    <a class="main-cta" href="mailto:aichaelbekali53@gmail.com">Contact me</a>
-  </div>
-</div>
+            <div class="profile-info">
+              <div class="lang-row">
+                <span>FR</span>
+                <span>EN</span>
+                <span>DE</span>
+              </div>
+              <h1>Aicha El Bekali</h1>
+              <div class="role">Software · AI · Systems Engineering</div>
+              <a class="main-cta" href="mailto:aichaelbekali53@gmail.com">Contact me</a>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -674,7 +662,7 @@
           </p>
           <div class="hero-actions">
             <button class="btn primary nav-open" data-open="projects" type="button">Voir mes projets</button>
-            <a class="btn" href="./CV_AICHA_EL_BEKALI.pdf" target="_blank" rel="noopener">Télécharger mon CV</a>
+            <a class="btn" href="CV_AICHA_EL_BEKALI.pdf" target="_blank" rel="noopener">Télécharger mon CV</a>
             <button class="btn nav-open" data-open="contact" type="button">Me contacter</button>
           </div>
           <div class="chip-row">
