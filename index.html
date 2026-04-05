@@ -270,25 +270,24 @@
     }
 
     .photo-box {
-      position: relative;
-      width: 265px;
-      height: 340px;
-      border-radius: 34px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,.95);
-      background: linear-gradient(180deg, #eff6ff, #f7fbff);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 16px 40px rgba(81, 119, 190, .14);
-    }
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  height: 420px;
+  border-radius: 28px;
+  overflow: hidden;
+  margin: 40px auto 0;
+  background: #ffffff;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  border: 1px solid rgba(255,255,255,0.9);
+}
 
-    .photo-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+.photo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
     .photo-placeholder {
       text-align: center;
@@ -645,28 +644,24 @@
       <section class="left-panel">
         <div class="profile-frame">
           <div class="profile-card">
-            <div class="photo-area">
-              <div class="photo-orb"></div>
-              <div class="photo-box">
-                <img src="profile.jpg" alt="Aicha El Bekali" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-                <div class="photo-placeholder" style="display:none;">
-                  <strong>AE</strong>
-                  <span>Ajoute une image nommée <b>profile.jpg</b><br>dans le même dossier que <b>index.html</b>.</span>
-                </div>
-              </div>
-            </div>
+  <div class="photo-area">
+    <div class="photo-orb"></div>
+    <div class="photo-box">
+      <img src="profile.jpg" alt="Aicha El Bekali" />
+    </div>
+  </div>
 
-            <div class="profile-info">
-              <div class="lang-row">
-                <span>FR</span>
-                <span>EN</span>
-                <span>DE</span>
-              </div>
-              <h1>Aicha El Bekali</h1>
-              <div class="role">Software · AI · Systems Engineering</div>
-              <a class="main-cta" href="mailto:aichaelbekali53@gmail.com">Contact me</a>
-            </div>
-          </div>
+  <div class="profile-info">
+    <div class="lang-row">
+      <span>FR</span>
+      <span>EN</span>
+      <span>DE</span>
+    </div>
+    <h1>Aicha El Bekali</h1>
+    <div class="role">Software · AI · Systems Engineering</div>
+    <a class="main-cta" href="mailto:aichaelbekali53@gmail.com">Contact me</a>
+  </div>
+</div>
         </div>
       </section>
 
