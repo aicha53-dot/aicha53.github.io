@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aicha El Bekali | Portfolio</title>
-  <meta name="description" content="Portfolio interactif de Aicha El Bekali" />
+  <meta name="description" content="Portfolio moderne et interactif de Aicha El Bekali" />
   <style>
     :root{
       --bg:#f7fbff;
-      --bg2:#eef6ff;
+      --bg-2:#eef6ff;
       --panel:rgba(255,255,255,.82);
       --panel-strong:rgba(255,255,255,.95);
       --text:#16233b;
@@ -21,9 +21,6 @@
       --peach:#ffd9be;
       --green:#44d9ab;
       --shadow:0 24px 80px rgba(88,110,160,.15);
-      --radius-xl:34px;
-      --radius-lg:26px;
-      --radius-md:18px;
     }
 
     *{box-sizing:border-box}
@@ -67,16 +64,8 @@
       transition:opacity .8s ease, visibility .8s ease;
     }
 
-    .intro.hidden{
-      opacity:0;
-      visibility:hidden;
-      pointer-events:none;
-    }
-
-    .intro-box{
-      text-align:center;
-      padding:24px;
-    }
+    .intro.hidden{opacity:0;visibility:hidden;pointer-events:none}
+    .intro-box{text-align:center;padding:24px}
 
     .intro-sub{
       color:#7a87a4;
@@ -105,10 +94,7 @@
       animation:blink .8s infinite;
     }
 
-    @keyframes blink{
-      0%,49%{opacity:1}
-      50%,100%{opacity:0}
-    }
+    @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
 
     .shell{
       position:relative;
@@ -127,10 +113,7 @@
       transition:opacity .8s ease, transform .8s ease;
     }
 
-    .shell.ready{
-      opacity:1;
-      transform:translateY(0);
-    }
+    .shell.ready{opacity:1;transform:translateY(0)}
 
     .layout{
       display:grid;
@@ -162,13 +145,7 @@
       transition:transform .2s ease, background .2s ease;
     }
 
-    .round-btn:hover,
-    .menu button:hover,
-    .btn:hover,
-    .small-btn:hover,
-    .main-cta:hover{
-      transform:translateY(-2px);
-    }
+    .round-btn:hover,.menu button:hover,.btn:hover,.small-btn:hover,.main-cta:hover,.contact-action:hover{transform:translateY(-2px)}
 
     .menu{
       width:100%;
@@ -196,10 +173,7 @@
       position:relative;
     }
 
-    .menu button.active{
-      color:#10203b;
-      background:linear-gradient(135deg, rgba(255,127,202,.22), rgba(73,163,255,.18));
-    }
+    .menu button.active{color:#10203b;background:linear-gradient(135deg, rgba(255,127,202,.22), rgba(73,163,255,.18))}
 
     .menu button.active::before{
       content:"";
@@ -213,12 +187,7 @@
       background:linear-gradient(180deg, var(--pink), var(--blue));
     }
 
-    .sidebar-footer{
-      margin-top:auto;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-    }
+    .sidebar-footer{margin-top:auto;display:flex;flex-direction:column;gap:12px}
 
     .left-panel{
       padding:24px;
@@ -263,13 +232,7 @@
       flex-shrink:0;
     }
 
-    .profile-image{
-      width:100%;
-      height:100%;
-      display:block;
-      object-fit:cover;
-      object-position:center top;
-    }
+    .profile-image{width:100%;height:100%;display:block;object-fit:cover;object-position:center top}
 
     .photo-fallback{
       position:absolute;
@@ -283,17 +246,8 @@
       background:linear-gradient(180deg, #eff6ff, #f7fbff);
     }
 
-    .photo-fallback strong{
-      display:block;
-      font-size:1.15rem;
-      margin-bottom:8px;
-    }
-
-    .photo-fallback span{
-      color:var(--muted);
-      font-size:.95rem;
-      line-height:1.5;
-    }
+    .photo-fallback strong{display:block;font-size:1.15rem;margin-bottom:8px}
+    .photo-fallback span{color:var(--muted);font-size:.95rem;line-height:1.5}
 
     .profile-info{
       margin-top:auto;
@@ -302,37 +256,12 @@
       backdrop-filter:blur(16px);
     }
 
-    .lang-row{
-      display:flex;
-      justify-content:center;
-      gap:12px;
-      color:var(--muted);
-      font-size:14px;
-      margin-bottom:10px;
-    }
+    .lang-row{display:flex;justify-content:center;gap:12px;color:var(--muted);font-size:14px;margin-bottom:10px}
+    .lang-row span::before{content:"•";color:var(--blue);margin-right:8px}
 
-    .lang-row span::before{
-      content:"•";
-      color:var(--blue);
-      margin-right:8px;
-    }
+    .profile-info h1{margin:0;text-align:center;font-size:2.55rem;line-height:1.03;letter-spacing:-.05em}
 
-    .profile-info h1{
-      margin:0;
-      text-align:center;
-      font-size:2.55rem;
-      line-height:1.03;
-      letter-spacing:-.05em;
-    }
-
-    .role{
-      text-align:center;
-      margin:10px 0 18px;
-      color:#51627f;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      font-size:.95rem;
-    }
+    .role{text-align:center;margin:10px 0 18px;color:#51627f;letter-spacing:.12em;text-transform:uppercase;font-size:.95rem}
 
     .main-cta{
       width:100%;
@@ -346,25 +275,27 @@
       box-shadow:0 14px 30px rgba(81,119,190,.16);
     }
 
-    .content{
-      position:relative;
-      padding:24px;
-      overflow:hidden;
-    }
+    .content{position:relative;padding:24px;overflow:hidden}
 
     .social-rail{
       position:absolute;
-      right:14px;
-      top:50%;
-      transform:translateY(-50%);
+      right:24px;
+      top:24px;
       display:flex;
-      flex-direction:column;
-      gap:14px;
+      flex-wrap:wrap;
+      gap:10px;
       align-items:center;
-      writing-mode:vertical-rl;
-      text-transform:uppercase;
-      letter-spacing:.18em;
-      color:var(--muted);
+      justify-content:flex-end;
+    }
+
+    .social-pill{
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.82);
+      border:1px solid rgba(255,255,255,.9);
+      box-shadow:0 8px 20px rgba(81,119,190,.08);
+      color:var(--text);
+      font-weight:700;
       font-size:.92rem;
     }
 
@@ -380,11 +311,7 @@
       box-shadow:inset 0 10px 30px rgba(81,119,190,.05);
     }
 
-    .panel.active{
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-    }
+    .panel.active{display:flex;flex-direction:column;justify-content:center}
 
     .panel::before{
       content:"";
@@ -430,37 +357,13 @@
       color:transparent;
     }
 
-    .panel p,
-    .panel li,
-    .panel span{
-      position:relative;
-      z-index:1;
-      color:var(--muted);
-      font-size:1.04rem;
-      line-height:1.75;
-    }
+    .panel p,.panel li,.panel span{position:relative;z-index:1;color:var(--muted);font-size:1.04rem;line-height:1.75}
 
-    .hero-actions,
-    .link-row,
-    .chip-row,
-    .cards,
-    .project-grid,
-    .contact-grid{
-      position:relative;
-      z-index:1;
-    }
+    .hero-actions,.link-row,.cards,.project-grid,.contact-list{position:relative;z-index:1}
 
-    .hero-actions,
-    .link-row,
-    .chip-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:20px;
-    }
+    .hero-actions,.link-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
 
-    .btn,
-    .small-btn{
+    .btn,.small-btn{
       border-radius:16px;
       padding:14px 18px;
       border:1px solid rgba(255,255,255,.9);
@@ -474,9 +377,7 @@
       cursor:pointer;
     }
 
-    .btn.primary{
-      background:linear-gradient(135deg, rgba(255,127,202,.24), rgba(73,163,255,.22));
-    }
+    .btn.primary{background:linear-gradient(135deg, rgba(255,127,202,.24), rgba(73,163,255,.22))}
 
     .stamp{
       position:absolute;
@@ -494,27 +395,9 @@
       font-size:.9rem;
     }
 
-    .chip{
-      padding:10px 14px;
-      border-radius:999px;
-      background:rgba(255,255,255,.8);
-      border:1px solid rgba(255,255,255,.9);
-      color:#334766;
-      font-size:.95rem;
-    }
+    .cards,.project-grid{display:grid;gap:18px;margin-top:20px;grid-template-columns:repeat(2,1fr)}
 
-    .cards,
-    .project-grid,
-    .contact-grid{
-      display:grid;
-      gap:18px;
-      margin-top:20px;
-      grid-template-columns:repeat(2, 1fr);
-    }
-
-    .card,
-    .project-card,
-    .contact-card{
+    .card,.project-card,.contact-item{
       padding:22px;
       border-radius:24px;
       border:1px solid rgba(255,255,255,.9);
@@ -524,48 +407,52 @@
       box-shadow:0 10px 26px rgba(81,119,190,.07);
     }
 
-    .card h3,
-    .project-card h3,
-    .contact-card h3{
-      margin:0 0 10px;
-      font-size:1.18rem;
-      color:var(--text);
-      position:relative;
-      z-index:1;
-    }
+    .card h3,.project-card h3{margin:0 0 10px;font-size:1.18rem;color:var(--text);position:relative;z-index:1}
 
-    .project-top{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:14px;
-      margin-bottom:12px;
-      position:relative;
-      z-index:1;
-    }
-
-    .state{
-      white-space:nowrap;
-      padding:8px 12px;
-      border-radius:999px;
-      font-size:12px;
+    .project-thumb{
+      width:100%;
+      height:180px;
+      border-radius:18px;
+      overflow:hidden;
+      margin-bottom:16px;
+      background:linear-gradient(135deg,#e8f2ff,#f7fbff);
       border:1px solid rgba(255,255,255,.9);
-      background:rgba(255,255,255,.88);
-      color:#334766;
     }
 
-    .state.live{color:#1f7e63}
-    .state.progress{color:#a06b19}
+    .project-thumb img{width:100%;height:100%;display:block;object-fit:cover}
+
+    .project-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:12px;position:relative;z-index:1}
+
+    .state{white-space:nowrap;padding:8px 12px;border-radius:999px;font-size:12px;border:1px solid rgba(255,255,255,.9);background:rgba(255,255,255,.88);color:#334766}
+    .state.live{color:#1f7e63}.state.progress{color:#a06b19}
 
     ul{margin:0 0 16px 18px;padding:0}
 
-    .footer{
-      margin-top:22px;
-      color:#7b8ba7;
-      font-size:13px;
-      position:relative;
-      z-index:1;
+    .contact-list{display:grid;gap:14px;margin-top:18px}
+
+    .contact-item{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:16px 18px;
+      border-radius:18px;
     }
+
+    .contact-item strong{display:block;margin-bottom:4px;color:var(--text)}
+    .contact-item span{color:var(--muted);font-size:.95rem;line-height:1.5}
+
+    .contact-action{
+      white-space:nowrap;
+      padding:10px 14px;
+      border-radius:999px;
+      background:linear-gradient(135deg, rgba(255,127,202,.18), rgba(73,163,255,.16));
+      border:1px solid rgba(255,255,255,.9);
+      font-weight:700;
+      color:var(--text);
+    }
+
+    .footer{margin-top:22px;color:#7b8ba7;font-size:13px;position:relative;z-index:1}
 
     @media (max-width:1220px){
       .layout{grid-template-columns:86px 360px 1fr}
@@ -576,77 +463,32 @@
     @media (max-width:1060px){
       .layout{grid-template-columns:86px 1fr}
       .left-panel{display:none}
-      .social-rail{display:none}
+      .social-rail{position:static;margin:0 0 16px;justify-content:flex-start}
+      .panel{min-height:auto}
     }
 
     @media (max-width:760px){
-      .shell{
-        width:calc(100% - 10px);
-        margin:5px auto;
-        border-radius:24px;
-      }
-
+      .shell{width:calc(100% - 10px);margin:5px auto;border-radius:24px}
       .layout{grid-template-columns:1fr}
-
-      .sidebar{
-        flex-direction:row;
-        justify-content:space-between;
-        border-right:0;
-        border-bottom:1px solid var(--line);
-      }
-
-      .menu{
-        width:auto;
-        padding:6px;
-        flex-direction:row;
-      }
-
-      .menu button{
-        width:56px;
-        height:56px;
-      }
-
-      .menu button.active::before{
-        left:50%;
-        top:auto;
-        bottom:-4px;
-        transform:translateX(-50%);
-        width:24px;
-        height:3px;
-      }
-
-      .sidebar-footer{
-        flex-direction:row;
-        margin-top:0;
-      }
-
+      .sidebar{flex-direction:row;justify-content:space-between;border-right:0;border-bottom:1px solid var(--line)}
+      .menu{width:auto;padding:6px;flex-direction:row}
+      .menu button{width:56px;height:56px}
+      .menu button.active::before{left:50%;top:auto;bottom:-4px;transform:translateX(-50%);width:24px;height:3px}
+      .sidebar-footer{flex-direction:row;margin-top:0}
       .content{padding:16px}
-      .panel{
-        min-height:auto;
-        padding:24px;
-      }
-
-      .cards,
-      .project-grid,
-      .contact-grid{
-        grid-template-columns:1fr;
-      }
-
-      .stamp{
-        position:static;
-        margin-top:22px;
-        width:120px;
-        height:120px;
-      }
+      .panel{padding:24px}
+      .cards,.project-grid{grid-template-columns:1fr}
+      .contact-item{flex-direction:column;align-items:flex-start}
+      .stamp{position:static;margin-top:22px;width:120px;height:120px}
     }
 
     @media (max-width:540px){
       .menu{display:none}
       .panel h2{font-size:2rem}
-      .panel p,
-      .panel li,
-      .panel span{font-size:.96rem}
+      .panel p,.panel li,.panel span{font-size:.96rem}
       .intro-sub{letter-spacing:.18em}
+      .social-rail{gap:8px}
+      .social-pill{font-size:.85rem}
     }
   </style>
 </head>
@@ -664,16 +506,16 @@
         <div class="round-btn">☰</div>
 
         <div class="menu">
-          <button class="tab-btn active" data-target="home" title="Accueil" type="button">⌂</button>
+          <button class="tab-btn active" data-target="home" title="Accueil" type="button">🏠</button>
           <button class="tab-btn" data-target="about" title="À propos" type="button">👤</button>
           <button class="tab-btn" data-target="projects" title="Projets" type="button">💼</button>
-          <button class="tab-btn" data-target="skills" title="Compétences" type="button">✦</button>
-          <button class="tab-btn" data-target="contact" title="Contact" type="button">✉</button>
+          <button class="tab-btn" data-target="skills" title="Compétences" type="button">✨</button>
+          <button class="tab-btn" data-target="contact" title="Contact" type="button">✉️</button>
         </div>
 
         <div class="sidebar-footer">
-          <a class="round-btn" href="https://www.linkedin.com/in/aicha-el-bekali-95b9a539b/" target="_blank" rel="noopener" title="LinkedIn">in</a>
-          <a class="round-btn" href="https://github.com/aicha53-dot" target="_blank" rel="noopener" title="GitHub">⌘</a>
+          <a class="round-btn" href="https://www.linkedin.com/in/aicha-el-bekali-95b9a539b/" target="_blank" rel="noopener" title="LinkedIn">💼</a>
+          <a class="round-btn" href="https://github.com/aicha53-dot" target="_blank" rel="noopener" title="GitHub">💻</a>
         </div>
       </aside>
 
@@ -681,12 +523,7 @@
         <div class="profile-frame">
           <div class="profile-card">
             <div class="photo-box-large">
-              <img
-                src="profile.jpg"
-                alt="Aicha El Bekali"
-                class="profile-image"
-                onerror="this.style.display='none';document.getElementById('photoFallback').style.display='flex';"
-              />
+              <img src="profile.jpg" alt="Aicha El Bekali" class="profile-image" onerror="this.style.display='none';document.getElementById('photoFallback').style.display='flex';" />
               <div id="photoFallback" class="photo-fallback">
                 <div>
                   <strong>Photo introuvable</strong>
@@ -703,13 +540,19 @@
               </div>
               <h1>Aicha El Bekali</h1>
               <div class="role">Software · AI · Systems Engineering</div>
-              <a class="main-cta" href="mailto:aichaelbekali53@gmail.com">Contact me</a>
+              <a class="main-cta" href="mailto:aichaelbekali53@gmail.com">✉️ Contact me</a>
             </div>
           </div>
         </div>
       </section>
 
       <section class="content">
+        <div class="social-rail">
+          <a class="social-pill" href="https://www.linkedin.com/in/aicha-el-bekali-95b9a539b/" target="_blank" rel="noopener">💼 LinkedIn</a>
+          <a class="social-pill" href="https://github.com/aicha53-dot" target="_blank" rel="noopener">💻 GitHub</a>
+          <a class="social-pill" href="mailto:aichaelbekali53@gmail.com">✉️ Contact</a>
+        </div>
+
         <section id="home" class="panel active">
           <div class="badge">Intro</div>
           <h2>Bonjour, bienvenue dans mon <span class="grad">portfolio</span></h2>
@@ -718,15 +561,9 @@
           </p>
 
           <div class="hero-actions">
-            <button class="btn primary nav-open" data-open="projects" type="button">Voir mes projets</button>
-            <a class="btn" href="CV_AICHA_EL_BEKALI.pdf" target="_blank" rel="noopener">Télécharger mon CV</a>
-            <button class="btn nav-open" data-open="contact" type="button">Me contacter</button>
-          </div>
-
-          <div class="chip-row">
-            <div class="chip">Responsive</div>
-            <div class="chip">Navigation fluide</div>
-            <div class="chip">Design bright</div>
+            <button class="btn primary nav-open" data-open="projects" type="button">💼 Voir mes projets</button>
+            <a class="btn" href="CV_AICHA_EL_BEKALI.pdf" target="_blank" rel="noopener">📄 Télécharger mon CV</a>
+            <button class="btn nav-open" data-open="contact" type="button">✉️ Me contacter</button>
           </div>
 
           <div class="stamp">My Work</div>
@@ -741,19 +578,19 @@
 
           <div class="cards">
             <div class="card">
-              <h3>Formation</h3>
+              <h3>🎓 Formation</h3>
               <p>EMSI — Génie Informatique & Réseaux, 4e année.</p>
             </div>
             <div class="card">
-              <h3>Spécialisation</h3>
+              <h3>🧠 Spécialisation</h3>
               <p>Data Science & IA, avec un intérêt fort pour le software et les systèmes.</p>
             </div>
             <div class="card">
-              <h3>Ce que je construis</h3>
+              <h3>🛠️ Ce que je construis</h3>
               <p>Des applications web, des projets IA et des projets orientés infrastructure.</p>
             </div>
             <div class="card">
-              <h3>Langues</h3>
+              <h3>🌍 Langues</h3>
               <p>Français, anglais, allemand.</p>
             </div>
           </div>
@@ -768,6 +605,7 @@
 
           <div class="project-grid">
             <div class="project-card">
+              <div class="project-thumb placeholder">📰 Ajoute une capture de TruthLens ici<br><small>Nom conseillé : truthlens.jpg</small></div>
               <div class="project-top">
                 <h3>TruthLens — Fake News Detection Platform</h3>
                 <div class="state live">Live deployed</div>
@@ -779,11 +617,12 @@
                 <li>Problématique sociétale forte</li>
               </ul>
               <div class="link-row">
-                <a class="small-btn" href="https://truth-lens-lyart-nine.vercel.app/" target="_blank" rel="noopener">Ouvrir l’app</a>
+                <a class="small-btn" href="https://truth-lens-lyart-nine.vercel.app/" target="_blank" rel="noopener">🚀 Ouvrir l’app</a>
               </div>
             </div>
 
             <div class="project-card">
+              <div class="project-thumb placeholder">⚡ Ajoute une image du projet énergie<br><small>Nom conseillé : energy-project.jpg</small></div>
               <div class="project-top">
                 <h3>Energy Efficiency Classification</h3>
                 <div class="state live">Public repo</div>
@@ -795,11 +634,12 @@
                 <li>Workflow ML structuré</li>
               </ul>
               <div class="link-row">
-                <a class="small-btn" href="https://github.com/aicha53-dot/energy-classification-project" target="_blank" rel="noopener">Voir GitHub</a>
+                <a class="small-btn" href="https://github.com/aicha53-dot/energy-classification-project" target="_blank" rel="noopener">💻 Voir GitHub</a>
               </div>
             </div>
 
             <div class="project-card">
+              <div class="project-thumb placeholder">💰 Ajoute une image de la Budget App<br><small>Nom conseillé : budget-app.jpg</small></div>
               <div class="project-top">
                 <h3>Personal Budget Management Web App</h3>
                 <div class="state live">Public repo</div>
@@ -811,11 +651,12 @@
                 <li>Bases solides en développement</li>
               </ul>
               <div class="link-row">
-                <a class="small-btn" href="https://github.com/aicha53-dot/PersonalBudgetApp1" target="_blank" rel="noopener">Voir GitHub</a>
+                <a class="small-btn" href="https://github.com/aicha53-dot/PersonalBudgetApp1" target="_blank" rel="noopener">💻 Voir GitHub</a>
               </div>
             </div>
 
             <div class="project-card">
+              <div class="project-thumb placeholder">🖥️ Ajoute une image datacenter / réseau<br><small>Nom conseillé : datacenter.jpg</small></div>
               <div class="project-top">
                 <h3>Virtualized DMZ & Mini Datacenter</h3>
                 <div class="state progress">In progress</div>
@@ -837,37 +678,22 @@
             Je veux montrer un profil qui va au-delà d’un seul domaine : développement, IA, web, bases de données, Linux et virtualisation.
           </p>
 
-          <div class="chip-row">
-            <div class="chip">Python</div>
-            <div class="chip">Java</div>
-            <div class="chip">SQL</div>
-            <div class="chip">Pandas</div>
-            <div class="chip">Scikit-learn</div>
-            <div class="chip">ASP.NET MVC</div>
-            <div class="chip">HTML / CSS / JS</div>
-            <div class="chip">Linux</div>
-            <div class="chip">Git & GitHub</div>
-            <div class="chip">Proxmox</div>
-            <div class="chip">MongoDB</div>
-            <div class="chip">MySQL</div>
-          </div>
-
           <div class="cards">
             <div class="card">
-              <h3>Software</h3>
-              <p>Développement structuré, backend, logique applicative et organisation claire.</p>
+              <h3>🐍 Python</h3>
+              <p>Automatisation, scripts, data et machine learning.</p>
             </div>
             <div class="card">
-              <h3>AI / Data</h3>
-              <p>Prétraitement, modélisation et intégration d’IA dans des projets réels.</p>
+              <h3>🤖 AI / Data</h3>
+              <p>Pandas, Scikit-learn, prétraitement, modélisation et analyse.</p>
             </div>
             <div class="card">
-              <h3>Systems</h3>
-              <p>Linux, Git, virtualisation et environnement technique.</p>
+              <h3>🌐 Web & Software</h3>
+              <p>ASP.NET MVC, HTML, CSS, JavaScript et architecture applicative.</p>
             </div>
             <div class="card">
-              <h3>Presentation</h3>
-              <p>Capacité à rendre un projet propre, lisible et professionnel.</p>
+              <h3>🖥️ Systems</h3>
+              <p>Linux, Git, virtualisation, bases de données et environnement technique.</p>
             </div>
           </div>
         </section>
@@ -879,32 +705,42 @@
             Je continue à améliorer mon portfolio et mes projets pour des opportunités de stage, de collaboration et d’évolution technique.
           </p>
 
-          <div class="contact-grid">
-            <div class="contact-card">
-              <h3>Email personnel</h3>
-              <p><a href="mailto:aichaelbekali53@gmail.com">aichaelbekali53@gmail.com</a></p>
+          <div class="contact-list">
+            <div class="contact-item">
+              <div>
+                <strong>✉️ Email personnel</strong>
+                <span>aichaelbekali53@gmail.com</span>
+              </div>
+              <a class="contact-action" href="mailto:aichaelbekali53@gmail.com">Envoyer</a>
             </div>
-            <div class="contact-card">
-              <h3>Email école</h3>
-              <p><a href="mailto:aicha.elbekali@emsi-edu.ma">aicha.elbekali@emsi-edu.ma</a></p>
+
+            <div class="contact-item">
+              <div>
+                <strong>🏫 Email école</strong>
+                <span>aicha.elbekali@emsi-edu.ma</span>
+              </div>
+              <a class="contact-action" href="mailto:aicha.elbekali@emsi-edu.ma">Envoyer</a>
             </div>
-            <div class="contact-card">
-              <h3>LinkedIn</h3>
-              <p><a href="https://www.linkedin.com/in/aicha-el-bekali-95b9a539b/" target="_blank" rel="noopener">Voir mon profil</a></p>
+
+            <div class="contact-item">
+              <div>
+                <strong>💼 LinkedIn</strong>
+                <span>Profil professionnel et réseau</span>
+              </div>
+              <a class="contact-action" href="https://www.linkedin.com/in/aicha-el-bekali-95b9a539b/" target="_blank" rel="noopener">Ouvrir</a>
             </div>
-            <div class="contact-card">
-              <h3>GitHub</h3>
-              <p><a href="https://github.com/aicha53-dot" target="_blank" rel="noopener">Voir mes repositories</a></p>
+
+            <div class="contact-item">
+              <div>
+                <strong>💻 GitHub</strong>
+                <span>Repositories et projets techniques</span>
+              </div>
+              <a class="contact-action" href="https://github.com/aicha53-dot" target="_blank" rel="noopener">Ouvrir</a>
             </div>
           </div>
 
           <div class="footer">© <span id="year"></span> Aicha El Bekali — Portfolio interactif</div>
         </section>
-
-        <div class="social-rail">
-          <a href="https://www.linkedin.com/in/aicha-el-bekali-95b9a539b/" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://github.com/aicha53-dot" target="_blank" rel="noopener">GitHub</a>
-        </div>
       </section>
     </div>
   </main>
@@ -920,7 +756,7 @@
 
     function typeName(){
       if(i < fullName.length){
-        introName.innerHTML = fullName.slice(0, i + 1) + '<span class=\"intro-cursor\"></span>';
+        introName.innerHTML = fullName.slice(0, i + 1) + '<span class="intro-cursor"></span>';
         i++;
         setTimeout(typeName, 90);
       } else {
@@ -940,13 +776,8 @@
     const quickOpen = document.querySelectorAll('.nav-open');
 
     function openPanel(targetId){
-      panels.forEach(panel => {
-        panel.classList.toggle('active', panel.id === targetId);
-      });
-
-      buttons.forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.target === targetId);
-      });
+      panels.forEach(panel => panel.classList.toggle('active', panel.id === targetId));
+      buttons.forEach(btn => btn.classList.toggle('active', btn.dataset.target === targetId));
     }
 
     buttons.forEach(btn => {
