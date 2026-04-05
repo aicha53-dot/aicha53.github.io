@@ -4,23 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aicha El Bekali | Portfolio</title>
-  <meta name="description" content="Portfolio interactif de Aicha El Bekali" />
+  <meta name="description" content="Portfolio moderne et interactif de Aicha El Bekali" />
   <style>
     :root {
-      --bg: #f6f9ff;
-      --bg2: #eef4ff;
-      --panel: rgba(255,255,255,0.72);
-      --panel-strong: rgba(255,255,255,0.9);
-      --text: #172033;
-      --muted: #5f6e8a;
-      --line: rgba(31, 52, 95, 0.08);
-      --blue: #4da3ff;
-      --cyan: #58d5ff;
-      --violet: #8f74ff;
-      --pink: #ff78cf;
-      --peach: #ffd7b8;
-      --green: #4fd6a8;
-      --shadow: 0 20px 60px rgba(66, 90, 140, 0.16);
+      --bg: #f7fbff;
+      --bg-2: #eef6ff;
+      --panel: rgba(255,255,255,0.82);
+      --panel-strong: rgba(255,255,255,0.94);
+      --text: #16233b;
+      --muted: #667897;
+      --line: rgba(26, 45, 84, 0.08);
+      --blue: #49a3ff;
+      --cyan: #62dfff;
+      --violet: #8a7dff;
+      --pink: #ff7fca;
+      --peach: #ffd9be;
+      --green: #44d9ab;
+      --shadow: 0 24px 80px rgba(88, 110, 160, 0.15);
       --radius-xl: 34px;
       --radius-lg: 26px;
       --radius-md: 18px;
@@ -32,10 +32,10 @@
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 10% 10%, rgba(255,120,207,0.24), transparent 22%),
-        radial-gradient(circle at 85% 12%, rgba(77,163,255,0.24), transparent 20%),
-        radial-gradient(circle at 55% 100%, rgba(88,213,255,0.2), transparent 24%),
-        linear-gradient(135deg, #f7fbff 0%, #eff5ff 52%, #f7f2ff 100%);
+        radial-gradient(circle at 8% 8%, rgba(255,127,202,.28), transparent 20%),
+        radial-gradient(circle at 88% 12%, rgba(73,163,255,.22), transparent 18%),
+        radial-gradient(circle at 50% 100%, rgba(98,223,255,.18), transparent 22%),
+        linear-gradient(135deg, #f8fbff 0%, #eff6ff 48%, #f8f3ff 100%);
       overflow-x: hidden;
     }
 
@@ -45,32 +45,97 @@
       inset: 0;
       pointer-events: none;
       background-image:
-        linear-gradient(rgba(43,83,153,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(43,83,153,0.03) 1px, transparent 1px);
-      background-size: 42px 42px;
+        linear-gradient(rgba(42,72,120,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(42,72,120,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
       z-index: 0;
     }
 
     a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+
+    .intro {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,127,202,.22), transparent 24%),
+        radial-gradient(circle at 80% 20%, rgba(73,163,255,.18), transparent 22%),
+        linear-gradient(135deg, #fff8fd 0%, #eef6ff 50%, #f7faff 100%);
+      transition: opacity .8s ease, visibility .8s ease;
+    }
+
+    .intro.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .intro-box {
+      text-align: center;
+      padding: 24px;
+    }
+
+    .intro-sub {
+      color: #7a87a4;
+      text-transform: uppercase;
+      letter-spacing: .3em;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    .intro-name {
+      font-size: clamp(3rem, 9vw, 7.8rem);
+      line-height: 1;
+      letter-spacing: -.06em;
+      font-weight: 800;
+      color: #17233b;
+      min-height: 1.2em;
+    }
+
+    .intro-cursor {
+      display: inline-block;
+      width: .08em;
+      height: .95em;
+      vertical-align: -0.08em;
+      margin-left: .08em;
+      background: linear-gradient(180deg, var(--pink), var(--blue));
+      animation: blink .8s infinite;
+    }
+
+    @keyframes blink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
 
     .shell {
       position: relative;
       z-index: 1;
-      width: min(1460px, calc(100% - 20px));
-      min-height: calc(100vh - 20px);
-      margin: 10px auto;
+      width: min(1460px, calc(100% - 18px));
+      min-height: calc(100vh - 18px);
+      margin: 9px auto;
       border-radius: 30px;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.7);
-      background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.55));
-      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,.75);
+      background: linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.58));
+      backdrop-filter: blur(22px);
       box-shadow: var(--shadow);
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+
+    .shell.ready {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .layout {
       display: grid;
       grid-template-columns: 96px 430px 1fr;
-      min-height: calc(100vh - 20px);
+      min-height: calc(100vh - 18px);
     }
 
     .sidebar {
@@ -80,21 +145,21 @@
       flex-direction: column;
       align-items: center;
       gap: 18px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.5), rgba(255,255,255,0.28));
+      background: linear-gradient(180deg, rgba(255,255,255,.54), rgba(255,255,255,.3));
     }
 
     .round-btn {
       width: 60px;
       height: 60px;
       border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.7);
-      background: rgba(255,255,255,0.65);
+      border: 1px solid rgba(255,255,255,.85);
+      background: rgba(255,255,255,.72);
       display: grid;
       place-items: center;
       font-size: 1.15rem;
       color: var(--text);
-      box-shadow: 0 8px 24px rgba(81, 119, 190, 0.08);
-      transition: .2s ease;
+      box-shadow: 0 10px 24px rgba(81, 119, 190, .08);
+      transition: transform .2s ease, background .2s ease;
     }
 
     .round-btn:hover,
@@ -107,13 +172,13 @@
       width: 100%;
       border-radius: 28px;
       padding: 10px 0;
-      border: 1px solid rgba(255,255,255,0.7);
-      background: rgba(255,255,255,0.55);
+      border: 1px solid rgba(255,255,255,.85);
+      background: rgba(255,255,255,.6);
       display: flex;
       flex-direction: column;
       gap: 6px;
       align-items: center;
-      box-shadow: 0 8px 24px rgba(81, 119, 190, 0.08);
+      box-shadow: 0 10px 24px rgba(81, 119, 190, .08);
     }
 
     .menu button {
@@ -131,7 +196,7 @@
 
     .menu button.active {
       color: #10203b;
-      background: linear-gradient(135deg, rgba(255,120,207,0.22), rgba(77,163,255,0.18));
+      background: linear-gradient(135deg, rgba(255,127,202,.22), rgba(73,163,255,.18));
     }
 
     .menu button.active::before {
@@ -167,21 +232,11 @@
       max-width: 388px;
       min-height: 760px;
       border-radius: 40px;
-      border: 1px solid rgba(255,255,255,0.8);
-      background: linear-gradient(180deg, rgba(255,255,255,0.58), rgba(255,255,255,0.34));
+      border: 1px solid rgba(255,255,255,.9);
+      background: linear-gradient(180deg, rgba(255,255,255,.62), rgba(255,255,255,.38));
       padding: 18px;
       overflow: hidden;
-      box-shadow: 0 18px 42px rgba(81, 119, 190, 0.1);
-    }
-
-    .profile-frame::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% 100%, rgba(255,120,207,0.15), transparent 24%),
-        radial-gradient(circle at 80% 0%, rgba(77,163,255,0.14), transparent 24%);
-      pointer-events: none;
+      box-shadow: 0 18px 42px rgba(81, 119, 190, .1);
     }
 
     .profile-card {
@@ -190,7 +245,7 @@
       border-radius: 30px;
       overflow: hidden;
       background: linear-gradient(180deg, #ffffff, #f6f9ff 100%);
-      border: 1px solid rgba(255,255,255,0.8);
+      border: 1px solid rgba(255,255,255,.9);
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -202,30 +257,30 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 36px;
+      padding: 34px;
     }
 
     .photo-orb {
       position: absolute;
-      width: 290px;
-      height: 290px;
+      width: 300px;
+      height: 300px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(77,163,255,0.22), rgba(255,120,207,0.16), transparent 72%);
+      background: radial-gradient(circle, rgba(73,163,255,.22), rgba(255,127,202,.16), transparent 72%);
       filter: blur(28px);
     }
 
     .photo-box {
       position: relative;
-      width: 260px;
-      height: 330px;
+      width: 265px;
+      height: 340px;
       border-radius: 34px;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.9);
+      border: 1px solid rgba(255,255,255,.95);
       background: linear-gradient(180deg, #eff6ff, #f7fbff);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 16px 40px rgba(81, 119, 190, 0.14);
+      box-shadow: 0 16px 40px rgba(81, 119, 190, .14);
     }
 
     .photo-box img {
@@ -244,9 +299,8 @@
     .photo-placeholder strong {
       display: block;
       font-size: 3.2rem;
-      letter-spacing: -0.08em;
+      letter-spacing: -.08em;
       margin-bottom: 8px;
-      color: #18243b;
     }
 
     .photo-placeholder span {
@@ -261,7 +315,7 @@
       z-index: 1;
       margin-top: auto;
       padding: 26px 22px 22px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.76) 18%, rgba(255,255,255,0.96));
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.76) 18%, rgba(255,255,255,.97));
       backdrop-filter: blur(16px);
     }
 
@@ -285,16 +339,16 @@
       text-align: center;
       font-size: 2.55rem;
       line-height: 1.03;
-      letter-spacing: -0.05em;
+      letter-spacing: -.05em;
     }
 
     .role {
       text-align: center;
       margin: 10px 0 18px;
       color: #51627f;
-      letter-spacing: 0.12em;
+      letter-spacing: .12em;
       text-transform: uppercase;
-      font-size: 0.95rem;
+      font-size: .95rem;
     }
 
     .main-cta {
@@ -306,7 +360,7 @@
       font-weight: 800;
       color: white;
       background: linear-gradient(135deg, var(--pink), var(--blue), var(--cyan));
-      box-shadow: 0 14px 30px rgba(81, 119, 190, 0.16);
+      box-shadow: 0 14px 30px rgba(81, 119, 190, .16);
     }
 
     .content {
@@ -325,9 +379,8 @@
       gap: 14px;
       align-items: center;
       writing-mode: vertical-rl;
-      text-orientation: mixed;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
+      letter-spacing: .18em;
       color: var(--muted);
       font-size: .92rem;
     }
@@ -335,13 +388,13 @@
     .panel {
       min-height: calc(100vh - 72px);
       border-radius: 32px;
-      border: 1px solid rgba(255,255,255,0.8);
-      background: linear-gradient(180deg, rgba(255,255,255,0.72), rgba(255,255,255,0.55));
+      border: 1px solid rgba(255,255,255,.88);
+      background: linear-gradient(180deg, rgba(255,255,255,.76), rgba(255,255,255,.58));
       padding: 34px;
       position: relative;
       display: none;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(81, 119, 190, 0.08) inset;
+      box-shadow: inset 0 10px 30px rgba(81, 119, 190, .05);
     }
 
     .panel.active { display: flex; flex-direction: column; justify-content: center; }
@@ -352,17 +405,17 @@
       inset: 0;
       pointer-events: none;
       background:
-        radial-gradient(circle at 8% 8%, rgba(255,120,207,0.13), transparent 16%),
-        radial-gradient(circle at 92% 10%, rgba(77,163,255,0.12), transparent 18%),
-        radial-gradient(circle at 90% 90%, rgba(88,213,255,0.1), transparent 20%);
+        radial-gradient(circle at 8% 8%, rgba(255,127,202,.12), transparent 16%),
+        radial-gradient(circle at 92% 10%, rgba(73,163,255,.12), transparent 18%),
+        radial-gradient(circle at 90% 90%, rgba(98,223,255,.1), transparent 20%);
     }
 
     .badge {
       width: fit-content;
       padding: 8px 14px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.75);
-      border: 1px solid rgba(255,255,255,0.85);
+      background: rgba(255,255,255,.84);
+      border: 1px solid rgba(255,255,255,.9);
       color: #5c6c88;
       text-transform: uppercase;
       letter-spacing: .14em;
@@ -376,14 +429,14 @@
       position: relative;
       z-index: 1;
       margin: 0 0 14px;
-      font-size: clamp(2.3rem, 5vw, 4.5rem);
-      line-height: 1.03;
-      letter-spacing: -0.06em;
+      font-size: clamp(2.5rem, 5vw, 4.8rem);
+      line-height: 1.02;
+      letter-spacing: -.07em;
       max-width: 11ch;
     }
 
     .panel h2 .grad {
-      background: linear-gradient(135deg, #16325d, #5a7bff, #ff69c7);
+      background: linear-gradient(135deg, #15305a, #5a7bff, #ff69c7);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -420,8 +473,8 @@
     .small-btn {
       border-radius: 16px;
       padding: 14px 18px;
-      border: 1px solid rgba(255,255,255,0.8);
-      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(255,255,255,.9);
+      background: rgba(255,255,255,.82);
       color: var(--text);
       font-weight: 700;
       transition: .2s ease;
@@ -431,9 +484,7 @@
       cursor: pointer;
     }
 
-    .btn.primary {
-      background: linear-gradient(135deg, rgba(255,120,207,0.24), rgba(77,163,255,0.22));
-    }
+    .btn.primary { background: linear-gradient(135deg, rgba(255,127,202,.24), rgba(73,163,255,.22)); }
 
     .stamp {
       position: absolute;
@@ -442,7 +493,7 @@
       width: 148px;
       height: 148px;
       border-radius: 50%;
-      border: 1px solid rgba(31,52,95,0.12);
+      border: 1px solid rgba(31,52,95,.12);
       display: grid;
       place-items: center;
       color: #617092;
@@ -454,8 +505,8 @@
     .chip {
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.72);
-      border: 1px solid rgba(255,255,255,0.8);
+      background: rgba(255,255,255,.8);
+      border: 1px solid rgba(255,255,255,.9);
       color: #334766;
       font-size: .95rem;
     }
@@ -466,22 +517,19 @@
       display: grid;
       gap: 18px;
       margin-top: 20px;
+      grid-template-columns: repeat(2, 1fr);
     }
-
-    .cards,
-    .project-grid,
-    .contact-grid { grid-template-columns: repeat(2, 1fr); }
 
     .card,
     .project-card,
     .contact-card {
       padding: 22px;
       border-radius: 24px;
-      border: 1px solid rgba(255,255,255,0.8);
-      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(255,255,255,.9);
+      background: rgba(255,255,255,.82);
       position: relative;
       overflow: hidden;
-      box-shadow: 0 10px 26px rgba(81, 119, 190, 0.07);
+      box-shadow: 0 10px 26px rgba(81, 119, 190, .07);
     }
 
     .card h3,
@@ -509,8 +557,8 @@
       padding: 8px 12px;
       border-radius: 999px;
       font-size: 12px;
-      border: 1px solid rgba(255,255,255,0.8);
-      background: rgba(255,255,255,0.85);
+      border: 1px solid rgba(255,255,255,.9);
+      background: rgba(255,255,255,.88);
       color: #334766;
     }
 
@@ -547,11 +595,7 @@
         border-right: 0;
         border-bottom: 1px solid var(--line);
       }
-      .menu {
-        width: auto;
-        padding: 6px;
-        flex-direction: row;
-      }
+      .menu { width: auto; padding: 6px; flex-direction: row; }
       .menu button { width: 56px; height: 56px; }
       .menu button.active::before {
         left: 50%; top: auto; bottom: -4px; transform: translateX(-50%); width: 24px; height: 3px;
@@ -567,11 +611,19 @@
       .menu { display: none; }
       .panel h2 { font-size: 2rem; }
       .panel p, .panel li, .panel span { font-size: .96rem; }
+      .intro-sub { letter-spacing: .18em; }
     }
   </style>
 </head>
 <body>
-  <main class="shell">
+  <div class="intro" id="intro">
+    <div class="intro-box">
+      <div class="intro-sub">Software · AI · Systems Engineering</div>
+      <div class="intro-name" id="introName"></div>
+    </div>
+  </div>
+
+  <main class="shell" id="appShell">
     <div class="layout">
       <aside class="sidebar">
         <div class="round-btn">☰</div>
@@ -599,7 +651,7 @@
                 <img src="profile.jpg" alt="Aicha El Bekali" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
                 <div class="photo-placeholder" style="display:none;">
                   <strong>AE</strong>
-                  <span>Ajoute une image nommée <b>profile.jpg</b><br>dans le même dossier que index.html</span>
+                  <span>Ajoute une image nommée <b>profile.jpg</b><br>dans le même dossier que <b>index.html</b>.</span>
                 </div>
               </div>
             </div>
@@ -623,17 +675,17 @@
           <div class="badge">Intro</div>
           <h2>Bonjour, bienvenue dans mon <span class="grad">portfolio</span></h2>
           <p>
-            Je suis élève ingénieure en informatique et réseaux. Je m’intéresse au développement logiciel, aux applications d’IA, aux systèmes Linux et aux projets techniques bien construits. Cette version du portfolio utilise une navigation par menu avec des sections séparées, un style plus lumineux et une interface plus claire.
+            Je suis élève ingénieure en informatique et réseaux. Je m’intéresse au développement logiciel, aux applications d’IA, aux systèmes Linux et aux projets techniques bien structurés. Ce portfolio a une intro animée, une navigation par menu, une photo à gauche et des sections séparées.
           </p>
           <div class="hero-actions">
-            <button class="btn primary nav-open" data-open="projects">Voir mes projets</button>
+            <button class="btn primary nav-open" data-open="projects" type="button">Voir mes projets</button>
             <a class="btn" href="./CV_AICHA_EL_BEKALI.pdf" target="_blank" rel="noopener">Télécharger mon CV</a>
-            <button class="btn nav-open" data-open="contact">Me contacter</button>
+            <button class="btn nav-open" data-open="contact" type="button">Me contacter</button>
           </div>
           <div class="chip-row">
+            <div class="chip">Responsive</div>
+            <div class="chip">Navigation fluide</div>
             <div class="chip">Design bright</div>
-            <div class="chip">Navigation interactive</div>
-            <div class="chip">Sections séparées</div>
           </div>
           <div class="stamp">My Work</div>
         </section>
@@ -642,7 +694,7 @@
           <div class="badge">À propos</div>
           <h2>Un profil orienté <span class="grad">engineering</span></h2>
           <p>
-            Mon objectif est de présenter un profil plus fort que “juste étudiante”. Je veux montrer une vraie capacité à concevoir, développer, structurer et présenter des projets utiles, modernes et techniquement crédibles.
+            Mon objectif est de présenter un profil qui montre à la fois la technique, la capacité à construire des projets, la logique d’ingénierie et la qualité de présentation.
           </p>
           <div class="cards">
             <div class="card">
@@ -655,7 +707,7 @@
             </div>
             <div class="card">
               <h3>Ce que je construis</h3>
-              <p>Des applications, des projets web, des workflows IA et des projets orientés infrastructure.</p>
+              <p>Des applications web, des projets IA et des projets orientés infrastructure.</p>
             </div>
             <div class="card">
               <h3>Langues</h3>
@@ -811,6 +863,29 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const intro = document.getElementById('intro');
+    const introName = document.getElementById('introName');
+    const appShell = document.getElementById('appShell');
+    const fullName = 'Aicha El Bekali';
+    let i = 0;
+
+    function typeName() {
+      if (i < fullName.length) {
+        introName.innerHTML = fullName.slice(0, i + 1) + '<span class="intro-cursor"></span>';
+        i++;
+        setTimeout(typeName, 90);
+      } else {
+        setTimeout(() => {
+          intro.classList.add('hidden');
+          appShell.classList.add('ready');
+        }, 900);
+      }
+    }
+
+    window.addEventListener('load', () => {
+      setTimeout(typeName, 300);
+    });
 
     const buttons = document.querySelectorAll('.tab-btn');
     const panels = document.querySelectorAll('.panel');
